@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "658457419271",
+    "project_id": "soicalcards",
+    "storage_bucket": "soicalcards.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:658457419271:android:3e862cd72f6f2ec93f54a2",
+        "android_client_info": {
+          "package_name": "com.alshammas.soicalcards"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "658457419271-arvj871u6dnc43bsqgvjst06ol005gvm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBe5I43YQDvhr4hNXtbgah4l2hSCcmKK5w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "658457419271-arvj871u6dnc43bsqgvjst06ol005gvm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
