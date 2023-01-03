@@ -46,6 +46,7 @@ class _EditProfileState extends State<Editprofile> {
             const SizedBox(height: 30),
             buildTextField("Email", "$userEmail", false),
             buildTextField("Name", "$userNAME", false),
+            buildTextField("Password", "", true),
             buildTextField("Phone", showwidget(), false),
             const SizedBox(height: 30),
             ElevatedButton(
