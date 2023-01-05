@@ -26,61 +26,111 @@ class _ViewProfileState extends State<Viewprofile> {
       key: _scaffoldKey,
       body: Padding(
         padding: const EdgeInsets.fromLTRB(30, 40, 30, 0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            const Center(
-              child: CircleAvatar(
-                backgroundImage: AssetImage('images/profile.png'),
-                radius: 50,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              const Center(
+                child: CircleAvatar(
+                  backgroundImage: AssetImage('images/profile.png'),
+                  radius: 50,
+                ),
               ),
-            ),
-            const SizedBox(height: 30),
-            Text(
-              'Welcome $userNAME',
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                  color: Color.fromARGB(255, 0, 0, 0),
-                  letterSpacing: 2,
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold),
-            ),
-            const Divider(
-              thickness: 2,
-              height: 60,
-              color: Color.fromARGB(255, 250, 223, 103),
-            ),
-            const SizedBox(height: 30),
-            const Icon(
-              Icons.email,
-              color: Color.fromARGB(255, 0, 0, 0),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Text(
-              '$userEmail',
-              style: const TextStyle(
-                  color: Color.fromARGB(255, 3, 3, 3),
-                  fontSize: 18,
-                  letterSpacing: 1),
-            ),
-            const SizedBox(height: 30),
-            const Icon(
-              Icons.phone,
-              color: Color.fromARGB(255, 0, 0, 0),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            Text(
-              showwidget(),
-              style: const TextStyle(
-                  color: Color.fromARGB(255, 3, 3, 3),
-                  fontSize: 18,
-                  letterSpacing: 1),
-            ),
-          ],
+              const SizedBox(height: 30),
+              Text(
+                'Welcome $userNAME',
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    letterSpacing: 2,
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold),
+              ),
+              const Divider(
+                thickness: 2,
+                height: 60,
+                color: Color.fromARGB(255, 250, 223, 103),
+              ),
+              const SizedBox(height: 30),
+              const Icon(
+                Icons.email,
+                color: Color.fromARGB(255, 0, 0, 0),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Text(
+                '$userEmail',
+                style: const TextStyle(
+                    color: Color.fromARGB(255, 3, 3, 3),
+                    fontSize: 18,
+                    letterSpacing: 1),
+              ),
+              const SizedBox(height: 30),
+              const Icon(
+                Icons.phone,
+                color: Color.fromARGB(255, 0, 0, 0),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              const Text(
+                'Empty',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 3, 3, 3),
+                    fontSize: 18,
+                    letterSpacing: 1),
+              ),
+              const SizedBox(height: 30),
+              const Icon(
+                Icons.location_city,
+                color: Color.fromARGB(255, 0, 0, 0),
+              ),
+              const Text(
+                'Empty',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 3, 3, 3),
+                    fontSize: 18,
+                    letterSpacing: 1),
+              ),
+              const SizedBox(height: 30),
+              const Icon(
+                Icons.work,
+                color: Color.fromARGB(255, 0, 0, 0),
+              ),
+              const Text(
+                'Empty',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 3, 3, 3),
+                    fontSize: 18,
+                    letterSpacing: 1),
+              ),
+              const SizedBox(height: 30),
+              const Icon(
+                Icons.lightbulb,
+                color: Color.fromARGB(255, 0, 0, 0),
+              ),
+              const Text(
+                'Empty',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 3, 3, 3),
+                    fontSize: 18,
+                    letterSpacing: 1),
+              ),
+              const SizedBox(height: 30),
+              const Icon(
+                Icons.sports_football,
+                color: Color.fromARGB(255, 0, 0, 0),
+              ),
+              const Text(
+                'Empty',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 3, 3, 3),
+                    fontSize: 18,
+                    letterSpacing: 1),
+              ),
+            ],
+          ),
         ),
       ),
     );

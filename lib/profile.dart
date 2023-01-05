@@ -17,8 +17,8 @@ class ProfilePage extends StatefulWidget {
 class _ProfileState extends State<ProfilePage> {
   int _currentindex = 0;
   final screens = [
-    Viewprofile(),
-    Editprofile(),
+    const Viewprofile(),
+    const Editprofile(),
   ];
   var userEmail = FirebaseAuth.instance.currentUser?.email;
   var userNAME = FirebaseAuth.instance.currentUser?.displayName;
