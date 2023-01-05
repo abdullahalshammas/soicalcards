@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'cards.dart';
 import 'profile.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Viewprofile extends StatefulWidget {
   const Viewprofile({Key? key, this.title}) : super(key: key);
@@ -120,6 +121,30 @@ class _ViewProfileState extends State<Viewprofile> {
               const SizedBox(height: 30),
               const Icon(
                 Icons.sports_football,
+                color: Color.fromARGB(255, 0, 0, 0),
+              ),
+              const Text(
+                'Empty',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 3, 3, 3),
+                    fontSize: 18,
+                    letterSpacing: 1),
+              ),
+              const SizedBox(height: 30),
+              const Icon(
+                FontAwesomeIcons.twitter,
+                color: Color.fromARGB(255, 0, 0, 0),
+              ),
+              const Text(
+                'Empty',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 3, 3, 3),
+                    fontSize: 18,
+                    letterSpacing: 1),
+              ),
+              const SizedBox(height: 30),
+              const Icon(
+                FontAwesomeIcons.instagram,
                 color: Color.fromARGB(255, 0, 0, 0),
               ),
               const Text(
