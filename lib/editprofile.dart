@@ -52,13 +52,13 @@ class _EditProfileState extends State<Editprofile> {
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromARGB(255, 7, 7, 7),
-                padding: EdgeInsets.symmetric(horizontal: 50),
+                backgroundColor: const Color.fromARGB(255, 7, 7, 7),
+                padding: const EdgeInsets.symmetric(horizontal: 50),
                 elevation: 2,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20)),
               ),
-              child: Text(
+              child: const Text(
                 "SAVE",
                 style: TextStyle(
                     fontSize: 14, letterSpacing: 2.2, color: Colors.white),
