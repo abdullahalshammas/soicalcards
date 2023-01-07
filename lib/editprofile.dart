@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'cards.dart';
 import 'profile.dart';
+import 'viewprofile.dart';
 
 class Editprofile extends StatefulWidget {
   const Editprofile({Key? key, this.title}) : super(key: key);
@@ -17,6 +18,8 @@ class Editprofile extends StatefulWidget {
 class _EditProfileState extends State<Editprofile> {
   final _firestore = FirebaseFirestore.instance;
   bool showPassword = false;
+  String? id = FirebaseAuth.instance.currentUser?.uid;
+  final _auth = FirebaseAuth.instance;
   var userEmail = FirebaseAuth.instance.currentUser?.email;
   var userNAME = FirebaseAuth.instance.currentUser?.displayName;
   var userphone = FirebaseAuth.instance.currentUser?.phoneNumber;
@@ -27,9 +30,9 @@ class _EditProfileState extends State<Editprofile> {
   var newaddress;
   var newskill;
   var newhoobie;
-  String? jobtitle;
+  var newtwitter;
+  var newinsta;
 
-  final _auth = FirebaseAuth.instance;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -75,7 +78,20 @@ class _EditProfileState extends State<Editprofile> {
             buildTextField("Twitter Account", '', false),
             buildTextField("Instagram Account", '', false),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                updatefire(newphone, 'phone');
+                updatefire(newjob, 'jobtitle');
+                updatefire(newinsta, 'instagram');
+                updatefire(newtwitter, 'job');
+                updatefire(newaddress, 'address');
+                updatefire(newskill, 'skills');
+                updatefire(newhoobie, 'twitter');
+                FirebaseAuth.instance.currentUser?.updateDisplayName(newname);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ProfilePage()));
+              },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromARGB(255, 7, 7, 7),
                 padding: const EdgeInsets.symmetric(horizontal: 50),
@@ -95,19 +111,11 @@ class _EditProfileState extends State<Editprofile> {
     );
   }
 
-  String showwidget() {
-    if (FirebaseAuth.instance.currentUser?.phoneNumber == null) {
-      return "PhoneNumber is Empty";
-    } else {
-      return '$userphone';
-    }
-  }
-
-  String jobtitles() {
-    if (_firestore.collection('profile') == null) {
-      return "PhoneNumber is Empty";
-    } else {
-      return '$userphone';
+  void updatefire(var data, String type) {
+    if (data != "" && data != null) {
+      FirebaseFirestore.instance.collection("profile").doc("$id").update({
+        '$type': data,
+      });
     }
   }
 
@@ -116,7 +124,7 @@ class _EditProfileState extends State<Editprofile> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 35.0),
       child: TextField(
-        onChanged: (value) {
+        onSubmitted: (value) {
           if (labelText == 'Name' && value != '') {
             newname = value;
           }
@@ -137,6 +145,12 @@ class _EditProfileState extends State<Editprofile> {
           }
           if (labelText == 'Hobbies' && value != '') {
             newhoobie = value;
+          }
+          if (labelText == 'Twitter Account' && value != '') {
+            newtwitter = value;
+          }
+          if (labelText == 'Instagram Account' && value != '') {
+            newinsta = value;
           }
         },
         obscureText: isPasswordTextField ? showPassword : false,

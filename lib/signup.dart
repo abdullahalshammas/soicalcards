@@ -114,13 +114,13 @@ class _SignUpPageState extends State<SignUpPage> {
           await userc.user?.updateDisplayName(name);
           var id = userc.user?.uid;
           await db.collection("profile").doc("$id").set({
-            'address': "",
-            'hobbies': "",
-            'instagram': "",
-            'jobtitle': "",
-            'phone': "",
-            'skills': "",
-            'twitter': "",
+            'address': "Empty",
+            'hobbies': "Empty",
+            'instagram': "Empty",
+            'jobtitle': "Empty",
+            'phone': "Empty",
+            'skills': "Empty",
+            'twitter': "Empty",
           });
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const LoginPage()));
