@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'loginPage.dart';
 import 'main.dart';
 
@@ -18,7 +19,7 @@ class _SignUpPageState extends State<SignUpPage> {
   late String email;
   late String password;
   late String name;
-
+  final db = FirebaseFirestore.instance;
   // ignore: non_constant_identifier_names
   Widget email_entryField(String title, {bool isPassword = false}) {
     return Container(
@@ -111,6 +112,16 @@ class _SignUpPageState extends State<SignUpPage> {
           final userc = await _auth.createUserWithEmailAndPassword(
               email: email, password: password);
           await userc.user?.updateDisplayName(name);
+          var id = userc.user?.uid;
+          await db.collection("profile").doc("$id").set({
+            'address': "",
+            'hobbies': "",
+            'instagram': "",
+            'jobtitle': "",
+            'phone': "",
+            'skills': "",
+            'twitter': "",
+          });
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => const LoginPage()));
         } catch (e) {

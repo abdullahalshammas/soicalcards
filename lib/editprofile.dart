@@ -59,51 +59,23 @@ class _EditProfileState extends State<Editprofile> {
               ]),
             ),
             const SizedBox(height: 30),
-            const SizedBox(height: 30),
-            buildTextField("Name", "$userNAME", false),
-            buildTextField("Password", "", true),
-            ElevatedButton(
-              onPressed: () {
-                FirebaseAuth.instance.currentUser?.updateDisplayName(newname);
-                if (newpass != null) {
-                  FirebaseAuth.instance.currentUser?.updatePassword(newpass);
-                }
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 7, 7, 7),
-                padding: const EdgeInsets.symmetric(horizontal: 50),
-                elevation: 2,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-              ),
-              child: const Text(
-                "UPDATE",
-                style: TextStyle(
-                    fontSize: 14, letterSpacing: 2.2, color: Colors.white),
-              ),
-            ),
             const Divider(
               thickness: 2,
               height: 40,
               color: Color.fromARGB(255, 250, 223, 103),
             ),
             const SizedBox(height: 30),
+            buildTextField("Name", "$userNAME", false),
+            buildTextField("Password", "", true),
             buildTextField("Phone", '', false),
             buildTextField("Address", '', false),
             buildTextField("Job Title", '', false),
             buildTextField("Skills", '', false),
             buildTextField("Hobbies", '', false),
-            const SizedBox(height: 30),
+            buildTextField("Twitter Account", '', false),
+            buildTextField("Instagram Account", '', false),
             ElevatedButton(
-              onPressed: () {
-                _firestore.collection('profile').add({
-                  'address': newaddress,
-                  'hobbie': newhoobie,
-                  'jobtitle': newjob,
-                  'phonenumber': newphone,
-                  'skill': newskill,
-                });
-              },
+              onPressed: () {},
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromARGB(255, 7, 7, 7),
                 padding: const EdgeInsets.symmetric(horizontal: 50),
@@ -112,7 +84,7 @@ class _EditProfileState extends State<Editprofile> {
                     borderRadius: BorderRadius.circular(20)),
               ),
               child: const Text(
-                "ADD",
+                "Save",
                 style: TextStyle(
                     fontSize: 14, letterSpacing: 2.2, color: Colors.white),
               ),
@@ -169,33 +141,41 @@ class _EditProfileState extends State<Editprofile> {
         },
         obscureText: isPasswordTextField ? showPassword : false,
         decoration: InputDecoration(
-            suffixIcon: isPasswordTextField
-                ? IconButton(
-                    onPressed: () {
-                      setState(() {
-                        showPassword = !showPassword;
-                      });
-                    },
-                    icon: const Icon(
-                      Icons.remove_red_eye,
-                      color: Color.fromARGB(255, 5, 5, 5),
-                    ),
-                  )
-                : null,
-            contentPadding: const EdgeInsets.only(bottom: 3),
-            labelText: labelText,
-            labelStyle: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
+          enabledBorder: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            borderSide: BorderSide(
+              width: 1,
+              color: Color.fromARGB(255, 250, 223, 103),
             ),
-            floatingLabelBehavior: FloatingLabelBehavior.always,
-            hintText: placeholder,
-            hintStyle: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Colors.grey,
-            )),
+          ),
+          suffixIcon: isPasswordTextField
+              ? IconButton(
+                  onPressed: () {
+                    setState(() {
+                      showPassword = !showPassword;
+                    });
+                  },
+                  icon: const Icon(
+                    Icons.remove_red_eye,
+                    color: Color.fromARGB(255, 5, 5, 5),
+                  ),
+                )
+              : null,
+          contentPadding: const EdgeInsets.only(bottom: 3),
+          labelText: labelText,
+          labelStyle: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          hintText: placeholder,
+          hintStyle: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Colors.grey,
+          ),
+        ),
       ),
     );
   }
